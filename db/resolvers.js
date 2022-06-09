@@ -77,7 +77,8 @@ const resolvers = {
         },
         obtenerPedidosVendedor: async (_, {}, ctx) => {
             try {
-                const pedidos = await Pedido.find({vendedor: ctx.usuario.id});
+                const pedidos = await Pedido.find({vendedor: ctx.usuario.id}).populate('cliente');
+                
                 return pedidos
             } catch (error) {
                 console.log(error)
@@ -175,7 +176,7 @@ const resolvers = {
                 }
         },
         autenticarUsuario: async (_, {input}) => {
-            const {email, password} =input;
+            const {email, password} = input;
             //Si el usuario existe
             const existeUsuario = await Usuario.findOne({email});
             if(!existeUsuario){
