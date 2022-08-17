@@ -4,7 +4,7 @@
   "description": "Curso de GraphQL",
   "main": "index.js",
   "scripts": {
-    "start": "node .",
+    "start": "node ./index.js",
     "dev": "nodemon ."
   },
   "author": "Andreu Anglada",
